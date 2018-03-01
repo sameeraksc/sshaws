@@ -1,0 +1,16 @@
+#!/bin/bash
+
+NODE="$1"
+
+ssh -o ConnectTimeout=10 -i /home/rezuser/Desktop/Pubs/rezg-ons.pem "centos@$NODE"
+
+if [ $? != 0 ];
+ then
+   ssh -o ConnectTimeout=10 -i /home/rezuser/Desktop/Pubs/awsavi "centos@$NODE"
+ fi
+ 
+
+if [ $? != 0 ];
+ then
+   ssh -o ConnectTimeout=10 -i /home/rezuser/Desktop/Pubs/awsshared "centos@$NODE"
+ fi
